@@ -5,5 +5,15 @@ plugins {
 }
 
 android {
-    namespace = "com.hodak.imitationbaemin.feature.histories"
+    namespace = "com.hodak.imitationbaemin.feature.home"
+}
+
+dependencies {
+    implementation(projects.core.data)
+    implementation(projects.core.domain)
+
+    testImplementation(libs.hilt.android.testing)
+    testImplementation(projects.core.testing)
+
+    androidTestImplementation(projects.core.testing)
 }
