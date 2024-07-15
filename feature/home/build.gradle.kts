@@ -9,6 +9,7 @@ android {
 }
 
 dependencies {
+    implementation(libs.accompanist.pager)
     implementation(projects.core.data)
     implementation(projects.core.domain)
 
