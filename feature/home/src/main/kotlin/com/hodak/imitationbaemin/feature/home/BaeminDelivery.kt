@@ -1,11 +1,9 @@
 package com.hodak.imitationbaemin.feature.home
 
 import androidx.annotation.DrawableRes
-import androidx.compose.foundation.Canvas
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
-import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.Row
@@ -24,24 +22,21 @@ import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.CardDefaults
 import androidx.compose.material3.ElevatedCard
 import androidx.compose.material3.Icon
-import androidx.compose.material3.LocalTextStyle
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.rotate
-import androidx.compose.ui.geometry.CornerRadius
-import androidx.compose.ui.geometry.Offset
-import androidx.compose.ui.geometry.Size
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.painterResource
-import androidx.compose.ui.text.AnnotatedString
-import androidx.compose.ui.text.TextStyle
+import androidx.compose.ui.text.SpanStyle
+import androidx.compose.ui.text.buildAnnotatedString
 import androidx.compose.ui.text.font.FontWeight
-import androidx.compose.ui.text.rememberTextMeasurer
+import androidx.compose.ui.text.withStyle
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import com.hodak.imitationbaemin.core.designsystem.component.HighlightedText
 import com.hodak.imitationbaemin.core.designsystem.icon.HoIcons
 import com.hodak.imitationbaemin.core.designsystem.theme.HoTheme
 
@@ -69,12 +64,13 @@ internal fun LazyStaggeredGridScope.baeminDelivery(
                     )
                     Spacer(Modifier.width(8.dp))
                     HighlightedText(
-                        text = AnnotatedString("알뜰·한집"),
-                        style = MaterialTheme.typography.labelLarge,
-                    )
-                    Spacer(Modifier.width(4.dp))
-                    Text(
-                        text = "알뜰배달팁 0원",
+                        text = buildAnnotatedString {
+                            withStyle(style = SpanStyle(fontWeight = FontWeight.Bold)) {
+                                append("알뜰·한집")
+                            }
+                            append(" 알뜰배달팁 0원")
+                        },
+                        highlightedText = "알뜰·한집",
                         style = MaterialTheme.typography.labelLarge,
                     )
                     Spacer(Modifier.weight(1f))
@@ -211,55 +207,6 @@ private fun FoodImageButton(
             style = MaterialTheme.typography.labelSmall.copy(
                 fontWeight = FontWeight.Normal
             )
-        )
-    }
-}
-
-@Composable
-internal fun HighlightedText(
-    text: AnnotatedString,
-    modifier: Modifier = Modifier,
-    style: TextStyle = LocalTextStyle.current,
-) {
-    val textLayoutResult = rememberTextMeasurer().measure(
-        text = text,
-        style = MaterialTheme.typography.labelLarge
-    )
-    val color = MaterialTheme.colorScheme.primary.copy(
-        alpha = 0.3f
-    )
-    Box(
-        modifier = modifier
-    ) {
-        Canvas(
-            modifier = Modifier
-        ) {
-            val width = textLayoutResult.size.width.dp.value
-            drawRoundRect(
-                color = color,
-                size = Size(
-                    width * 1.1f,
-                    textLayoutResult.size.height.dp.value / 2f
-                ),
-                topLeft = Offset(x = 0f, textLayoutResult.size.height.dp.value / 2.5f),
-                cornerRadius = CornerRadius(12f)
-            )
-            drawRoundRect(
-                color = color,
-                size = Size(
-                    width / 9f,
-                    textLayoutResult.size.height.dp.value / 2f
-                ),
-                topLeft = Offset(
-                    x = width,
-                    textLayoutResult.size.height.dp.value / 2.5f
-                ),
-                cornerRadius = CornerRadius(12f)
-            )
-        }
-        Text(
-            text = text,
-            style = style,
         )
     }
 }
