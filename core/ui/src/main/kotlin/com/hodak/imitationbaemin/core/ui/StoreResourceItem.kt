@@ -40,6 +40,9 @@ import com.hodak.imitationbaemin.core.designsystem.component.SingleDeliveryTag
 import com.hodak.imitationbaemin.core.designsystem.component.StoreTag
 import com.hodak.imitationbaemin.core.designsystem.icon.HoIcons
 import com.hodak.imitationbaemin.core.designsystem.theme.HoTheme
+import com.hodak.imitationbaemin.core.model.data.StoreResource
+import com.hodak.imitationbaemin.core.model.data.StoreTagData
+import com.hodak.imitationbaemin.core.model.data.StoreTagType
 
 @Composable
 fun StoreResourceItem(
@@ -268,43 +271,3 @@ private fun StoreResourceItemPreview() {
         )
     }
 }
-
-data class StoreResource(
-    val name: String,
-    val rating: Float,
-    val deliveryMinTime: Int,
-    val deliveryMaxTime: Int,
-    val deliveryMinTip: Int,
-    val deliveryMaxTip: Int,
-    val enabledCoupon: Boolean = false,
-    val couponText: String,
-    val tags: List<StoreTagData>,
-    val thumbnailRes: Int,
-)
-
-enum class StoreTagType(
-    val containerColor: Color,
-    val contentColor: Color,
-) {
-    ECONOMY_DELIVERY(
-        contentColor = Color.Unspecified,
-        containerColor = Color.Transparent,
-    ),
-    SINGLE_DELIVERY(
-        contentColor = Color.Unspecified,
-        containerColor = Color.Transparent,
-    ),
-    NEW(
-        contentColor = Color(0xFFC15996),
-        containerColor = Color(0xFFFCEFF8),
-    ),
-    NORMAL(
-        contentColor = Color(0xFF494949),
-        containerColor = Color(0xFFF5F5F5),
-    ),
-}
-
-data class StoreTagData(
-    val type: StoreTagType,
-    val text: String = "",
-)

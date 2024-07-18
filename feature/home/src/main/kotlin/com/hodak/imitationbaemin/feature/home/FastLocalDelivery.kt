@@ -27,10 +27,10 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.hodak.imitationbaemin.core.designsystem.icon.HoIcons
 import com.hodak.imitationbaemin.core.designsystem.theme.HoTheme
-import com.hodak.imitationbaemin.core.ui.StoreResource
+import com.hodak.imitationbaemin.core.model.data.StoreResource
+import com.hodak.imitationbaemin.core.model.data.StoreTagData
+import com.hodak.imitationbaemin.core.model.data.StoreTagType
 import com.hodak.imitationbaemin.core.ui.StoreResourceItem
-import com.hodak.imitationbaemin.core.ui.StoreTagData
-import com.hodak.imitationbaemin.core.ui.StoreTagType
 
 internal fun LazyStaggeredGridScope.fastLocalDelivery(
     storeItems: List<StoreResource>
