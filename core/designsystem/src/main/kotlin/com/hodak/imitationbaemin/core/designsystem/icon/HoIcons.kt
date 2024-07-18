@@ -4,6 +4,7 @@ import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.automirrored.rounded.ArrowBack
 import androidx.compose.material.icons.filled.MoreVert
 import androidx.compose.material.icons.outlined.GridView
+import androidx.compose.material.icons.outlined.Info
 import androidx.compose.material.icons.outlined.Notifications
 import androidx.compose.material.icons.outlined.ShoppingCart
 import androidx.compose.material.icons.rounded.AccessTime
@@ -15,6 +16,7 @@ import androidx.compose.material.icons.rounded.Close
 import androidx.compose.material.icons.rounded.PersonOutline
 import androidx.compose.material.icons.rounded.Search
 import androidx.compose.material.icons.rounded.Settings
+import androidx.compose.material.icons.rounded.Star
 
 object HoIcons {
     val Add = Icons.Rounded.Add
@@ -24,8 +26,10 @@ object HoIcons {
     val Check = Icons.Rounded.Check
     val Close = Icons.Rounded.Close
     val GridView = Icons.Outlined.GridView
+    val Info = Icons.Outlined.Info
     val Notifications = Icons.Outlined.Notifications
     val PersonOutline = Icons.Rounded.PersonOutline
+    val Star = Icons.Rounded.Star
     val Search = Icons.Rounded.Search
     val Settings = Icons.Rounded.Settings
     val ShoppingCart = Icons.Outlined.ShoppingCart
