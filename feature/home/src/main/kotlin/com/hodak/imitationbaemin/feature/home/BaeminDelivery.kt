@@ -39,6 +39,7 @@ import androidx.compose.ui.unit.dp
 import com.hodak.imitationbaemin.core.designsystem.component.HighlightedText
 import com.hodak.imitationbaemin.core.designsystem.icon.HoIcons
 import com.hodak.imitationbaemin.core.designsystem.theme.HoTheme
+import com.hodak.imitationbaemin.core.designsystem.theme.hannaPro
 
 internal fun LazyStaggeredGridScope.baeminDelivery(
     onClick: () -> Unit,
@@ -60,7 +61,9 @@ internal fun LazyStaggeredGridScope.baeminDelivery(
                 ) {
                     Text(
                         text = "배민배달",
-                        style = MaterialTheme.typography.titleMedium
+                        style = MaterialTheme.typography.titleMedium.copy(
+                            fontFamily = hannaPro
+                        )
                     )
                     Spacer(Modifier.width(8.dp))
                     HighlightedText(
