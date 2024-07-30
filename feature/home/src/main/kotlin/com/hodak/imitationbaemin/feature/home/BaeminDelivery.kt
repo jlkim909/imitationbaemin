@@ -4,6 +4,7 @@ import androidx.annotation.DrawableRes
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
+import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.Row
@@ -36,6 +37,7 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.withStyle
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import androidx.compose.ui.unit.sp
 import com.hodak.imitationbaemin.core.designsystem.component.HighlightedText
 import com.hodak.imitationbaemin.core.designsystem.icon.HoIcons
 import com.hodak.imitationbaemin.core.designsystem.theme.HoTheme
@@ -63,7 +65,7 @@ internal fun LazyStaggeredGridScope.baeminDelivery(
                         text = "배민배달",
                         style = MaterialTheme.typography.titleMedium.copy(
                             fontFamily = hannaPro
-                        )
+                        ),
                     )
                     Spacer(Modifier.width(8.dp))
                     HighlightedText(
@@ -74,7 +76,7 @@ internal fun LazyStaggeredGridScope.baeminDelivery(
                             append(" 알뜰배달팁 0원")
                         },
                         highlightedText = "알뜰·한집",
-                        style = MaterialTheme.typography.labelLarge,
+                        style = MaterialTheme.typography.labelMedium,
                     )
                     Spacer(Modifier.weight(1f))
                     Icon(
@@ -85,10 +87,8 @@ internal fun LazyStaggeredGridScope.baeminDelivery(
                             .size(16.dp)
                     )
                 }
-                Spacer(Modifier.height(12.dp))
-                FoodCategoryGrid(
-                    contentPadding = PaddingValues(horizontal = 4.dp),
-                )
+                Spacer(Modifier.height(4.dp))
+                FoodCategoryGrid()
             }
         }
     }
@@ -96,9 +96,9 @@ internal fun LazyStaggeredGridScope.baeminDelivery(
 
 @Composable
 private fun FoodCategoryGrid(
+    modifier: Modifier = Modifier,
     row: Int = 2,
     column: Int = 5,
-    contentPadding: PaddingValues,
 ) {
     val items = listOf(
         FoodImageButtonData(
@@ -154,13 +154,12 @@ private fun FoodCategoryGrid(
     )
 
     Column(
-        verticalArrangement = Arrangement.spacedBy(20.dp),
-        modifier = Modifier
-            .padding(contentPadding)
+        verticalArrangement = Arrangement.spacedBy(8.dp),
+        modifier = modifier
     ) {
         repeat(row) { rowIndex ->
             Row(
-                horizontalArrangement = Arrangement.spacedBy(20.dp),
+                horizontalArrangement = Arrangement.spacedBy(4.dp),
                 modifier = Modifier
                     .fillMaxWidth()
             ) {
@@ -197,9 +196,10 @@ private fun FoodImageButton(
             painter = painterResource(id = imageRes),
             contentDescription = null,
             modifier = Modifier
+                .padding(top = 8.dp, start = 8.dp, end = 8.dp)
                 .background(
                     color = containerColor ?: MaterialTheme.colorScheme.surface,
-                    shape = RoundedCornerShape(16.dp)
+                    shape = RoundedCornerShape(40)
                 )
                 .aspectRatio(1f)
                 .padding(8.dp)
@@ -207,9 +207,7 @@ private fun FoodImageButton(
         Spacer(Modifier.height(4.dp))
         Text(
             text = label,
-            style = MaterialTheme.typography.labelSmall.copy(
-                fontWeight = FontWeight.Normal
-            )
+            style = MaterialTheme.typography.labelMedium
         )
     }
 }

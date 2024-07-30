@@ -146,9 +146,7 @@ private fun FoodImageButton(
         Spacer(Modifier.height(4.dp))
         Text(
             text = label,
-            style = MaterialTheme.typography.labelSmall.copy(
-                fontWeight = FontWeight.Normal
-            )
+            style = MaterialTheme.typography.labelMedium
         )
     }
 }

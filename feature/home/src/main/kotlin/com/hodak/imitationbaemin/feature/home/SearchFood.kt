@@ -23,6 +23,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.RectangleShape
+import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.hodak.imitationbaemin.core.designsystem.icon.HoIcons
@@ -70,7 +71,7 @@ internal fun LazyStaggeredGridScope.searchFood(
                 Text(
                     text = text,
                     color = Color.Black.copy(alpha = 0.5f),
-                    style = MaterialTheme.typography.labelMedium,
+                    style = MaterialTheme.typography.labelLarge
                 )
                 Spacer(Modifier.weight(1f))
             }

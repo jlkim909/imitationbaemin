@@ -34,7 +34,7 @@ internal fun HomeTopAppBar(
             ) {
                 Text(
                     text = address,
-                    style = MaterialTheme.typography.titleSmall,
+                    style = MaterialTheme.typography.titleMedium,
                     color = MaterialTheme.colorScheme.surface,
                     maxLines = 1,
                     overflow = TextOverflow.Ellipsis,
@@ -93,7 +93,7 @@ internal fun HomeTopAppBar(
 private fun HomeTopAppBarPreview(){
     HoTheme {
         HomeTopAppBar(
-            address = "전북 전주시 덕진구 모래내8길"
+            address = "전북 전주시 덕진구 모래내8길 34"
         )
     }
 }
